@@ -7,10 +7,14 @@ const CryptoContext = ({children}) => {
     const [currency, setCurrency] = useState('INR')
     const [symbol, setSymbol] = useState('₹')
 
-    useEffect(()=> {
-        if (currency === 'USD') setSymbol("₹");
-        else if (currency ==="USD") setSymbol("$");
-    }, [currency]);
+    useEffect(() => {
+        const symbols = {
+          INR: '₹',
+          USD: '$'
+        };
+      
+        setSymbol(symbols[currency] || '');
+      }, [currency]);
 
     return <Crypto.Provider value ={{currency, symbol, setCurrency}}>{children}</Crypto.Provider>
 };
