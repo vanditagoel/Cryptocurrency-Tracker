@@ -1,4 +1,5 @@
 import axios from "axios";
+import ErrorPage from "./ErrorPage";
 import { useEffect, useState } from "react";
 import { HistoricalChart } from "../config/api";
 import { Line } from "react-chartjs-2";
@@ -11,6 +12,24 @@ import {
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
 import { CryptoState } from "../CryptoContext";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Tooltip,
+  Legend
+);
 
 // Styled container component
 const ChartContainer = styled('div')(({ theme }) => ({
@@ -54,6 +73,9 @@ const CoinInfo = ({ coin }) => {
   const [loading, setLoading] = useState(false); // Renamed from 'flag' to more descriptive 'loading'
 
   const fetchHistoricData = async () => {
+    if (!coin || !coin.id) {
+      return <ErrorPage message="hehe sorry ;)" />;
+    }    
     setLoading(true);
     try {
       const { data } = await axios.get(HistoricalChart(coin.id, days, currency));

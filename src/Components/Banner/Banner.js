@@ -4,14 +4,14 @@ import Carousel from "./Carousel"; // Make sure this path is correct
 // Styled components
 const BannerContainer = styled('div')({
   position: 'relative',
-  height: '100vh',
+  height: '60vh',
   width: '100%',
   overflow: 'hidden',
 });
 
 const VideoBackground = styled('video')({
   position: 'absolute',
-  top: 0,
+  top: '-350px',
   left: 0,
   minWidth: '100%',
   minHeight: '100%',
@@ -64,8 +64,7 @@ function Banner() {
   return (
     <BannerContainer>
       <VideoBackground autoPlay muted loop playsInline>
-        <source src="/crypto-background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src="/crypto-video.mp4" type="video/mp4" />
       </VideoBackground>
 
       <Overlay />
