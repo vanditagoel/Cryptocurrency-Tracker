@@ -2,6 +2,9 @@
 
 Vola Track is a modern cryptocurrency tracker web application that allows users to view real-time information about various cryptocurrencies, including trending coins, market data, and historical price charts. The app features a beautiful animated Spline 3D background, a responsive UI, and interactive charts.
 
+## Live Demo
+The project is deployed on Vercel: [https://valo-iota-eight.vercel.app/](https://valo-iota-eight.vercel.app/)
+
 ## Features
 - **Live Cryptocurrency Prices:** View up-to-date prices, market cap, and 24h changes for top cryptocurrencies.
 - **Trending Coins Carousel:** See trending coins in a visually appealing carousel.
