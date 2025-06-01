@@ -9,13 +9,13 @@ const BannerContainer = styled('div')({
   overflow: 'hidden',
 });
 
-const VideoBackground = styled('video')({
+const IframeBackground = styled('iframe')({
   position: 'absolute',
-  top: '-350px',
+  top: 0,
   left: 0,
-  minWidth: '100%',
-  minHeight: '100%',
-  objectFit: 'cover',
+  width: '100%',
+  height: '100%',
+  border: 'none',
   zIndex: 0,
 });
 
@@ -63,10 +63,13 @@ const Subtitle = styled(Typography)({
 function Banner() {
   return (
     <BannerContainer>
-      <VideoBackground autoPlay muted loop playsInline>
-        <source src="/crypto-video.mp4" type="video/mp4" />
-      </VideoBackground>
-
+      <IframeBackground
+        src="https://my.spline.design/coin-pJoH1vEP5ohI6qi7yWoq705N/"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+        tabIndex={-1}
+        aria-hidden="true"
+      />
       <Overlay />
 
       <BannerContent>
